@@ -1,14 +1,28 @@
+import "./App.css";
+import Homepage from "./Homepage";
+import AboutLittleLemon from "./AboutLittleLemon";
+import Contact from "./Contact";
+import { Routes, Route, Link } from "react-router-dom";
+
 function App() {
-  function handleClick() {
-    let randomNum = Math.floor(Math.random() * 3) + 1;
-    console.log(randomNum);
-    let userInput = prompt("type a number");
-    alert(`Computer number: ${randomNum}, Your guess: ${userInput}`);
-  }
   return (
     <div>
-      <h1>Tak: Add a button and handle a click event</h1>
-      <button onClick={handleClick}>Guess the number between 1 and 3</button>
+      <nav>
+        <Link to="/" className="nav-item">
+          Homepage
+        </Link>
+        <Link to="/about" className="nav-item">
+          About Little Lemon
+        </Link>
+        <Link to="/contact" className="nav-item">
+          Contact
+        </Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/about" element={<AboutLittleLemon />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+      </Routes>
     </div>
   );
 }
